@@ -1,0 +1,60 @@
+
+.wrapDialogs {
+    background-color: rebeccapurple;
+    width: 1000px;
+    display: flex;
+    font-size: 15px;
+    position: relative;
+}
+
+.dialogItem {
+    width: 20%;
+    background-color: #2963ff;
+    padding: 10px;
+}
+
+.messages {
+    background-color: #2963ff;
+    width: 80%;
+    padding: 10px;
+    height: 500px;
+}
+
+.dialogItem .active {
+    color: #bdaf1a;
+}
+
+.dialogUser {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.dialogUser img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.messangesElements {
+    height: 80%;
+}
+
+.submitMessage {
+    display: flex;
+    align-items: flex-end;
+    height: 20%;
+}
+
+/*.submitMessage textarea{*/
+/*     !*position: absolute;*!*/
+/*     !*bottom: 0px;*!*/
+/*    border: 0px;*/
+/* }*/
+
+/*.submitMessage button{*/
+/*    position: absolute;*/
+/*    bottom: 4px;*/
+/*    right: -208px;*/
+/*}*/

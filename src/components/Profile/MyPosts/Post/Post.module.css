@@ -1,0 +1,14 @@
+.myPost{
+  display: flex;
+  align-items: center;
+}
+.myPost img{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.item{
+  color: yellow;
+  padding: 10px;
+}

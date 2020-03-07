@@ -1,0 +1,20 @@
+.wrappUsers{
+    display: flex;
+    justify-content: space-around;
+}
+
+.wrappUser{
+    text-align: center;
+}
+
+.wrappUser img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.wrappSitebar h3{
+    font-size: 28px;
+    margin: 0 0 10px 10px;
+}
+

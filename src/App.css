@@ -1,0 +1,22 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app-wrapper{
+  width: 1200px;
+  margin: 0 auto;
+  
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  background-color: #290c8b;
+}
+
+aside {
+  background: #78219a;
+}
+
