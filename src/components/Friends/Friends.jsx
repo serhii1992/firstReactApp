@@ -3,7 +3,7 @@ import s from './Friends.module.css';
 import Friend from "./Friend/Friend";
 
 const Friends = (props) => {
-    debugger
+
     let friendUser = props.state.fridesSitebar
         .map(f => <Friend name={f.name} imgSrc={f.avatarUserSrc}/>);
     return (

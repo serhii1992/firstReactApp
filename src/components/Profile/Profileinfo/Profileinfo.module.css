@@ -1,3 +1,20 @@
 .descriptionUser{
     padding: 10px;
 }
+
+.userAvatar img{
+    width: 300px;
+}
+
+img.pictureTop{
+    width: 1000px;
+    height:200px;
+}
+
+.descriotion .aboutMe{
+    color:white;
+    padding-right: 5px;
+}
+.descriotion .aboutMeBody {
+    color: thistle;
+}

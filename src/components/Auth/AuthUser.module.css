@@ -1,0 +1,9 @@
+.loginBlock {
+    float: right;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.loginBlock a {
+    color: ivory;
+}

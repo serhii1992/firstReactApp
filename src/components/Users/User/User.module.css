@@ -1,0 +1,48 @@
+
+.userContainer{
+    display: flex;
+    margin-left: 50px;
+    margin-top: 50px;
+    width: 400px;
+
+    /*background: #bdaf1a;*/
+}
+
+.userImg{
+    display: flex;
+    flex-direction: column;
+}
+
+.userImg button{
+    width: 55px;
+}
+
+.userImg img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+
+.userInfo {
+    display: flex;
+    justify-content: space-between;
+    border: black solid 1px;
+    width: 400px;
+    border-radius: 10px;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.userInfo_name{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.userInfo_locatiot{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+

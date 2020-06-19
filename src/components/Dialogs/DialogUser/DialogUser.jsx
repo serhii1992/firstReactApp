@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom";
 
 const DialogUser = props => {
     let path = `/dialogs/${props.id}`;
+
     return (
         <div className={`${s.dialogUser}`}>
             <img src={props.imgSrc}/>

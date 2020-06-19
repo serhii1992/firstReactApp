@@ -1,0 +1,11 @@
+
+.timerContainer{
+margin: 20px 20px;
+}
+
+.timer{
+  display: flex;
+  align-items: center;
+  height: 20px;
+  border: royalblue solid 2px;
+}

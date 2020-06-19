@@ -12,11 +12,14 @@
 
 .main-content {
   display: flex;
-  justify-content: space-between;
-  background-color: #290c8b;
+  background-color: rgba(83, 197, 255, 0.67);
 }
 
-aside {
+.asideContainer{
+  padding: 15px;
   background: #78219a;
 }
 
+.navContainer {
+  margin-left: 190px;
+}

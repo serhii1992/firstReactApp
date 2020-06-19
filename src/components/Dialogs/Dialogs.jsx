@@ -2,28 +2,38 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogUser from "./DialogUser/DialogUser";
 import MessageUser from "./MessageUser/MessageUser";
-import {sendMessageCreator, updateNewMessageBodyCreator} from "../../Redux/dialogs-reducer";
+import { Field, reduxForm } from 'redux-form';
+import { required, maxLengthCreator } from './../../utils/validators';
+import { Textarea } from './../common/FormsControl/FormsControl';
+
+
+const maxLength50 = maxLengthCreator(50)
+
+const AddMessangeForm = (props) => {
+
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <Field component={Textarea} name={"newMessangeForm"} placeholder={"Enter your message"} validate={[required, maxLength50 ]} />
+            <button>Send</button>
+        </form>
+    )
+};
+
+const MessageReduxForm = reduxForm({ form: "AddMessange" })(AddMessangeForm)
 
 
 const Dialogs = props => {
-    let state = props.store.getState().dialogsPage;
+    let state = props.dialogsPage;
 
     let dialogsElements = state.dialogsData
-        .map(d => <DialogUser name={d.name} id={d.id} imgSrc={d.imgSrc}/>);
+        .map(d => <DialogUser name={d.name} id={d.id} imgSrc={d.imgSrc} />);
     let messengesElements = state.messagesData
-        .map(m => <MessageUser message={m.message}/>)
+        .map(m => <MessageUser message={m.message} />)
 
-    let newMessageBody = state.newMessageBody;
-    let textMessage = React.createRef();
-    let onSendMessageClick = () => {
-        props.store.dispatch(sendMessageCreator());
-    }
+    const addMessage = (value) => {
+        props.sendMessage(value.newMessangeForm);
+     }
 
-    let onNewMessageChange = (e) => {
-        let body = e.target.value;
-        props.store.dispatch(updateNewMessageBodyCreator(body));
-
-    }
     return (
         <div className={s.wrapDialogs}>
             <div className={s.dialogItem}>
@@ -34,11 +44,7 @@ const Dialogs = props => {
                     {messengesElements}
                 </div>
                 <div className={s.submitMessage}>
-                    <textarea value={newMessageBody}
-                              onChange={onNewMessageChange}
-                              ref={textMessage}
-                              placeholder={'Enter your message'}/>
-                    <button onClick={onSendMessageClick}>Send</button>
+                    <MessageReduxForm onSubmit={addMessage} />
                 </div>
             </div>
         </div>
@@ -46,3 +52,4 @@ const Dialogs = props => {
 }
 
 export default Dialogs
+

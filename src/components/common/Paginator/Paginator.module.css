@@ -1,0 +1,9 @@
+
+.pageNumber {
+    margin-right: 5px;
+    cursor: pointer;
+}
+.selectedPage {
+    font-weight: 700;
+    font-size: 18px;
+}

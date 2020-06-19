@@ -1,36 +1,55 @@
 import React from 'react';
 import Post from './Post/Post.jsx';
 import s from './MyPosts.module.css';
-import {addNewPostActionCreator, upDateTextActionCreator} from "../../../Redux/profile-reducer";
+import { Field, reduxForm } from 'redux-form';
+import { required, maxLengthCreator } from './../../../utils/validators';
+import { Textarea } from '../../common/FormsControl/FormsControl';
 
 
-const MyPosts = (props) => {
-    let postsElement = props.state.myPostsData
-        .map(p => <Post message={p.message} likesCont={p.likesCount}/>);
+const maxLengthValidator = maxLengthCreator(20)
 
-    let newPostElement = React.createRef();
-    let addPost = () => {
-        props.dispatch(addNewPostActionCreator());
-    };
-    let onPostChange = () => {
-        let textMessage = newPostElement.current.value;
-        props.dispatch(upDateTextActionCreator(textMessage))
-    }
+let TextPostForm = (props) => {
 
     return (
-        <div className={s.wrapMyPost}>
-            <h3>My post:</h3>
+        <form onSubmit={props.handleSubmit}>
             <div>
-                <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
+                <Field component={Textarea} placeholder={"Post messange"} name={"newPostText"} validate={[required, maxLengthValidator]} />
             </div>
             <div>
-                <button onClick={addPost}>Add post</button>
+                <button>Add post</button>
             </div>
-            <div className={s.posts}>
-                {postsElement}
-            </div>
-        </div>
+        </form >
     )
+};
+
+TextPostForm = reduxForm({ form: "newPostForm" })(TextPostForm)
+
+
+
+class MyPosts extends React.Component {
+
+
+    postsElement = this.props.posts
+        .map(p => <Post message={p.message} likesCont={p.likesCount} />);
+
+
+    addPost = (value) => {
+        this.props.addPost(this.value.newPostText);
+    };
+    render() {
+        console.warn(this.props);
+        console.log('MyPostsRENRER');
+        
+        return (
+            <div className={s.wrapMyPost}>
+                <h3>My post:</h3>
+                <TextPostForm onSubmit={this.addPost} />
+                <div className={s.posts}>
+                    {this.postsElement}
+                </div>
+            </div>
+        )
+    }
 }
 
 export default MyPosts
