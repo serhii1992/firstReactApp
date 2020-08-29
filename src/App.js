@@ -26,13 +26,18 @@ class App extends React.Component {
         }
 
         return (
-            <div className='app-wrapper'>
-                <Header />
-                <div className='main-content'>
-                    <aside className='asideContainer'>
+
+            <div >
+                <div className='header'>
+                    <div className='headerContent container'>
+                        <Header />
+                    </div>
+                </div>
+                <div className='mainContent container' >
+                    <div className='navbar'>
                         <Navbar />
-                    </aside>
-                    <div >
+                    </div>
+                    <div className="content">
                         <Route path='/dialogs' render={() => <DialogsContainer />} />
                         <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
                         <Route path='/users' render={() => <UsersContainer />} />
@@ -41,6 +46,7 @@ class App extends React.Component {
                     </div>
                 </div>
             </div>
+
         );
     }
 }
@@ -51,5 +57,5 @@ const mapStateToProps = (state) => ({
 
 export default compose(
     connect(mapStateToProps, { initialization }),
-    withRouter   
-) (App);
+    withRouter
+)(App);

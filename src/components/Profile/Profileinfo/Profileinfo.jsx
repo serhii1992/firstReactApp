@@ -2,13 +2,12 @@ import React from 'react';
 import s from './Profileinfo.module.css';
 import Preloader from '../../common/Preloader/Preloader';
 import ProfileStatusHook from './ProfileStatusHook'
-import { memo } from 'react';
+import userPhoto from '../../../assets/img/userAvatar.png'
 
 const Profileinfo = (props) => {
     if (!props.profile) {
         return <Preloader />
     }
-    console.log("ProfileInforender");
 
     return (
         <div>
@@ -17,7 +16,7 @@ const Profileinfo = (props) => {
             </div>
             <div className={s.descriptionUser}>
                 <div className={s.userAvatar}>
-                    <img src={props.profile.photos.large} alt="vatar" />
+                    <img src={props.profile.photos.large || userPhoto} alt="vatar" />
                 </div>
                 <div className={s.descriotion}>
                     <div>

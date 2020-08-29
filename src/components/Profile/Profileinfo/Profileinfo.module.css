@@ -3,11 +3,11 @@
 }
 
 .userAvatar img{
-    width: 300px;
+    max-width: 100px;
 }
 
 img.pictureTop{
-    width: 1000px;
+    max-width: 1000px;
     height:200px;
 }
 

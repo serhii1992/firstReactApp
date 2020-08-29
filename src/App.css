@@ -1,25 +1,37 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.app-wrapper{
-  width: 1200px;
-  margin: 0 auto;
-  
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto ;
+    border: solid 2px;
 }
 
-.main-content {
-  display: flex;
-  background-color: rgba(83, 197, 255, 0.67);
+.header{
+    background-color: red;
+    height: 50px;
 }
 
-.asideContainer{
-  padding: 15px;
-  background: #78219a;
+.mainContent {
+    display: flex;
+    background-color: green  ;
 }
 
-.navContainer {
-  margin-left: 190px;
+
+.navbar{
+    width: 20%;
+    background-color: honeydew;
+    border: solid 2px;
 }
+
+.content{
+    width: 80%;
+    background-color: salmon;
+    border: solid 2px;
+}
+
+

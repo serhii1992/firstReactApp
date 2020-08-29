@@ -26,19 +26,17 @@ const authReducer = (state = initialState, action) => {
 
 export const setAuthUserData = (userId, email, login, isAuth) => ({ type: SET_USER_DATA, data: { userId, email, login, isAuth } });
 
-export const getAuthUserData = () => (dispatch) => {
-    return authAPI.authMe().then(response => {
+export const getAuthUserData = () => async (dispatch) => {
+    const response = await authAPI.authMe()
         if (response.data.resultCode === 0) {
             let { email, id, login } = response.data.data;
             dispatch(setAuthUserData(id, email, login, true))
         }
-    })
+   
 }
 
-export const login = (email, password, rememberMe = false) => (dispatch) => {
-    
-    
-    authAPI.login(email, password, rememberMe).then(response => {
+export const login = (email, password, rememberMe = false) => async (dispatch) => {     
+    const response = await authAPI.login(email, password, rememberMe);
         if (response.data.resultCode === 0) {
             dispatch(getAuthUserData())
         }else{
@@ -47,15 +45,13 @@ export const login = (email, password, rememberMe = false) => (dispatch) => {
             dispatch(stopSubmit('login', {_error: message}))
             debugger
         }
-    })
 }
 
-export const logout = () => (dispatch) => {
-    authAPI.logout().then(response => {
+export const logout = () => async (dispatch) => {
+    const response= await authAPI.logout();
         if (response.data.resultCode === 0) {
             dispatch(setAuthUserData(null, null, null, false))
         }
-    })
 }
 
 
